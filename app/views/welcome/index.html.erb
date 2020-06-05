@@ -1,2 +1,11 @@
-<h1>Welcome to Finance Tracker app</h1>
-<%= link_to '[ Sign out ]', destroy_user_session_path, method: :delete%>
+<section id="welcome-index" class="mt-5">
+  <div class="jumbotron">
+    <h1 class="display-4">What is FinanceTracker?</h1>
+    <p class="lead">FinanceTracker is simple web application created with Rails 6 for educational purposes.</p>
+    <hr class="my-4">
+    <p>To start using FinanceTracker, please sign up or sign in, if you have an account already</p>
+    <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-primary btn-lg' %>
+    <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-success btn-lg' %>
+  </div>
+</section>
+<!--<%= link_to '[ Sign out ]', destroy_user_session_path, method: :delete %>-->

@@ -1,4 +1,4 @@
-<div class="card">
+<section class="card mt-5">
   <div class="card-body">
     <h1 class="card-title"><%= t('.sign_in') %></h1>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -25,4 +25,4 @@
     <hr />
     <%= render 'devise/shared/links' %>
   </div>
-</div>
+</section>

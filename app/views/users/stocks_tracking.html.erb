@@ -1,0 +1,21 @@
+<section class="card mt-5">
+  <div class="card-body">
+    <h1 class="card-title">Stocks tracking</h1>
+    <%= form_tag search_stock_path, remote: true, method: :get do %>
+      <div class="form-group row">
+        <div class="col-sm-8 col-md-10">
+          <%= text_field_tag :stock, params[:stock], placeholder: 'Stock ticker symbol', autofocus: true, class: 'form-control form-control-lg w-100' %>
+        </div>
+        <div class="col-sm-4 col-md-2 text-right">
+          <%= button_tag type: :submit, class: 'btn btn-lg btn-warning w-100' do%>
+            <%= fa_icon 'search' %> Search
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    <div id="stock_results"></div>
+    <% if !@tracked_stocks.empty? %>
+      <%= render 'stocks/list' %>
+    <% end %>
+  </div>
+</section>

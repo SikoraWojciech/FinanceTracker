@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
-  def my_portfolio
+  def stocks_tracking
     @tracked_stocks = current_user.stocks
     @user = current_user
   end
 
-  def my_friends
+  def following
     @friends = current_user.friends
   end
 

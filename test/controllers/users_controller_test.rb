@@ -1,9 +1,8 @@
-require 'test_helper'
+require "test_helper"
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
-  test "should get my_portfolio" do
-    get users_my_portfolio_url
+  test "should get stocks_tracking" do
+    get users_stocks_tracking_url
     assert_response :success
   end
-
 end

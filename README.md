@@ -1,24 +1,26 @@
-# README
+# FinanceTracker application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## What is FinanceTracker?
 
-Things you may want to cover:
+FinanceTracker is simple web application created with Rails 6 for educational purposes. Here you can track stocks, and see what is tracking by other users.
 
-* Ruby version
+## Ruby on Rails 6 issues covered:
 
-* System dependencies
+- Using and customization devise gem for authentication
+- Ajax form submission
+- Working with an external API
+- Using generators
+- Bootstrap 4.5 installation and usage (without the use of bootrstrap gem)
+- Many-to-many associations
+- Self referential associations
 
-* Configuration
+... and more!
 
-* Database creation
+## Demo
 
-* Database initialization
+This application is deployed on the Heroku platform, you can see it [here](https://gentle-ocean-70390.herokuapp.com/).
 
-* How to run the test suite
+## Contributors
 
-* Services (job queues, cache servers, search engines, etc.)
+This application is part of the The [Complete Ruby on Rails Developer Course](https://www.udemy.com/course/the-complete-ruby-on-rails-developer-course/) which I highly recommend! 
 
-* Deployment instructions
-
-* ...

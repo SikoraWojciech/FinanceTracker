@@ -1,23 +1,55 @@
-<h2>User details</h2>
-<div class="card card-header d-inline-block mb-3">
-  <div class="row p-1">
-    <div class="col-12">
-      <strong>Full Name: </strong> <%= @user.full_name %>
-      <strong>Email: </strong> <%= @user.email %>
-      <div class="d-inline-block align-right w-auto">
-        <% if current_user.not_friends_with?(@user.id) %>
-          <%= link_to "Follow", friendships_path(friend: @user), class: "btn btn-sm btn-success", method: :post %>
-        <% else %>
-          <span class="badge badge-secondary">
-            Already followed
-          </span>
-        <% end %>
+<section class="card mt-5">
+  <div class="card-body">
+    <%= link_to following_path, class: "btn btn-link px-0" do %>
+      <%= fa_icon 'arrow-left' %> Back
+    <% end %>
+    <h1 class="card-title">
+      Profile: <%= @user.full_name %>
+    </h1>
+    <h2 class="card-subtitle mb-2 text-muted">
+      <%= @user.email %>
+    </h2>
+    <% if current_user.not_friends_with?(@user.id) %>
+      <%= link_to friendships_path(friend: @user), class: "btn btn-success", method: :post do %>
+        <%= fa_icon 'user-plus' %> Follow
+      <% end %>
+    <% else %>
+      <div class="btn  btn-secondary disabled">
+        <%= fa_icon 'ban' %>
+        Already followed
+      </div>
+    <% end %>
+    <div class="card-text my-3">
+      <% if !@tracked_stocks.empty? %>
+        <%= render 'stocks/list' %>
+      <% else %>
+        <p class="text-secondary">This user is not tracking any stocks</p>
+      <% end %>
+    </div>
+  </div>
+</section>
+<!--
+  <h2>User details</h2>
+  <div class="card card-header d-inline-block mb-3">
+    <div class="row p-1">
+      <div class="col-12">
+        <strong>Full Name: </strong> <%= @user.full_name %>
+        <strong>Email: </strong> <%= @user.email %>
+        <div class="d-inline-block align-right w-auto">
+          <% if current_user.not_friends_with?(@user.id) %>
+            <%= link_to "Follow", friendships_path(friend: @user), class: "btn btn-sm btn-success", method: :post %>
+          <% else %>
+            <span class="badge badge-secondary">
+              Already followed
+            </span>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<% if !@tracked_stocks.empty? %>
-  <%= render 'stocks/list' %>
-<% else %>
-  <p class="lead">This user is not tracking any stocks</p>
-<% end %>
+  <% if !@tracked_stocks.empty? %>
+    <%= render 'stocks/list' %>
+  <% else %>
+    <p class="lead">This user is not tracking any stocks</p>
+  <% end %>
+-->

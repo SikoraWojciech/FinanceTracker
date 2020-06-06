@@ -1,21 +1,24 @@
-<div class="d-inline-block">
-  <%= render 'layouts/messages' %>
-</div>
+<%= render 'layouts/messages' %>
 <% if @friends %>
-  <div class="card card-header d-inline-block mb-3">
+  <div class="row my-3">
     <% @friends.each do |friend| %>
-      <div class="row p-1">
-        <div class="col-12">
-          <strong>Full Name: </strong> <%= friend.full_name %>
-          <strong>Email: </strong> <%= friend.email %>
-          <div class="d-inline-block align-right w-auto">
-            <%= link_to "View profile", user_path(friend), class: "btn btn-sm btn-primary" %>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="card my-1">
+          <div class="card-body">
+            <h5 class="card-title"><%= friend.full_name %></h5>
+            <h6 class="card-subtitle mb-2 text-muted"><%= friend.email %></h6>
+            <%= link_to user_path(friend), class: "btn btn-sm btn-primary" do %>
+              <%= fa_icon 'external-link' %> View profile
+            <% end %>
             <% if current_user.not_friends_with?(friend.id) %>
-              <%= link_to "Follow", friendships_path(friend: friend), class: "btn btn-sm btn-success", method: :post %>
+              <%= link_to friendships_path(friend: friend), class: "btn btn-sm btn-success", method: :post do %>
+                <%= fa_icon 'user-plus' %> Follow
+              <% end %>
             <% else %>
-              <span class="badge badge-secondary">
+              <div class="btn btn-sm btn-secondary disabled">
+                <%= fa_icon 'ban' %>
                 Already followed
-              </span>
+              </div>
             <% end %>
           </div>
         </div>

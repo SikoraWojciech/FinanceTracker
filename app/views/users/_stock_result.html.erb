@@ -1,6 +1,6 @@
 <%= render 'layouts/messages' %>
 <% if @stock %>
-  <div class="card my-3" style="width: 18rem;">
+  <div class="card my-3" style="width: 20rem;">
     <div class="card-body">
       <h5 class="card-title"><%= @stock.ticker %></h5>
       <h6 class="card-subtitle mb-2 text-muted"><%= @stock.name %></h6>
@@ -10,7 +10,7 @@
           <%= fa_icon 'plus' %> Add to tracking list
         <% end %>
       <% else %>
-        <span class="badge badge-secondary">
+        <div class="btn btn-sm btn-secondary disabled">
           <%= fa_icon 'ban' %>
           You are already tracking
           <% if !current_user.under_stock_limit? %>
@@ -18,7 +18,7 @@
           <% else %>
             this stock
           <% end %>
-        </span>
+        </div>
       <% end %>
     </div>
   </div>
